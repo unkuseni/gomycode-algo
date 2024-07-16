@@ -28,16 +28,17 @@ function fibonacci(n) {
 }
 
 function isPalindrome(str) {
-	// Remove spaces and convert to lowercase
 	str = str.toLowerCase().replace(/[\W_]/g, "");
+	let left = 0;
+	let right = str.length - 1;
 
-	if (str.length <= 1) {
-		return true;
+	while (left < right) {
+		if (str[left] !== str[right]) {
+			return false;
+		}
+		left++;
+		right--;
 	}
 
-	if (str[0] !== str[str.length - 1]) {
-		return false;
-	} else {
-		return isPalindrome(str.substring(1, str.length - 1));
-	}
+	return true;
 }
